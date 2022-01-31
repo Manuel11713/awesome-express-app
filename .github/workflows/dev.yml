@@ -4,7 +4,7 @@ on:
     branches:
       - dev
 env:
-  PIPELINE_ID: ${{ github.run_id }}
+  PIPELINE_ID: ${{ github.run_id }} - ${{ github.run_number }}
 
 jobs:
   build:
