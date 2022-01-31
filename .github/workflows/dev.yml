@@ -4,7 +4,7 @@ on:
     branches:
       - dev
 env:
-  PIPELINE_ID: ${{ github.run_id }} - ${{ github.run_number }}
+  PIPELINE_ID: ${{ github.run_id }} - ${{ github.run_attempt }}
 
 jobs:
   build:
@@ -26,4 +26,4 @@ jobs:
           version_label: ${{ env.PIPELINE_ID }}
           region: us-east-2
           deployment_package: deploy.zip
-          use_existing_version_if_available: false
+          #use_existing_version_if_available: false
