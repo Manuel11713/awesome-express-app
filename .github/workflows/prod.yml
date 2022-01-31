@@ -21,26 +21,9 @@ jobs:
       - name: deploy to beanstalk
         uses: hmanzur/actions-aws-eb@v1.0.0
         with:
-          #command: 'deploy ${{ secrets.ENVIRONMENT_NAME }}'
           command: "deploy"
 
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: "us-east-2"
-
-        # - name: Generate deployment package
-        #   run: zip -r reporton-dev-api.zip *
-
-        # - name: Deploy to EB
-        #   uses: einaregilsson/beanstalk-deploy@v18
-        #   with:
-        #     aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        #     aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        #     existing_bucket_name: ${{ env.APP_NAME }}
-        #     application_name: ${{ env.APP_NAME }}
-        #     environment_name: dev-api-docker
-        #     version_label: ${{ env.PIPELINE_ID }}
-        #     region: ${{ secrets.AWS_REGION_DEVELOPMENT }}
-        #     deployment_package: reporton-dev-api.zip
-        #     use_existing_version_if_available: false
