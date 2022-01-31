@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - dev
+env:
+  PIPELINE_ID: ${{ github.run_id }}
 
 jobs:
   build:
@@ -21,5 +23,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: dev-app
           environment_name: Devapp-env
+          version_label: ${{ env.PIPELINE_ID }}
           region: us-east-2
           deployment_package: deploy.zip

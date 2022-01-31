@@ -4,6 +4,9 @@ on:
     branches:
       - master
 
+env:
+  PIPELINE_ID: ${{ github.run_id }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,5 +24,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: prod-app
           environment_name: Prodapp-env
+          version_label: ${{ env.PIPELINE_ID }}
           region: us-east-1
           deployment_package: deploy.zip
