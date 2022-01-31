@@ -1,8 +1,8 @@
 branch-defaults:
-  master:
-    environment: Awesomeapp-env
+  dev:
+    environment: Devapp-env
 global:
-  application_name: awesome-app
+  application_name: dev-app
   branch: null
   default_ec2_keyname: null
   default_platform: Docker running on 64bit Amazon Linux 2
